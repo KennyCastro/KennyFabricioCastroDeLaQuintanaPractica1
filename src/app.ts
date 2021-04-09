@@ -1,41 +1,26 @@
-var vector: number[] = [5,9,15,1,3,20];
-var min:number = 0;
-var max:number = 0;
-console.log(minimo());
+var pagos: number [][] = [
+    [0, 1, 1, 0],
+    [0, 0, 1, 0],
+    [2, 0, 3, 3]
+];
 
 
-function minimo():number {
-    for(var i=0; i<vector.length;i++) {
-        if(i==0) {
-            max=vector[i];
-            min=vector[i];
-        }
-        else {
-            if(vector[i]>max) {
-                max = vector[i];
-            }
-            if(vector[i]<min) {
-                min = vector[i];
-            }
-        }    
-    }
-    return calculos();
-}
+var total: number =0;
 
-function calculos() :number{
-    let faltantes:number=0;
-    let respuesta:number=0;
-    for(var i:number=min ; i<=max ; i++){
-        for(var j:number =0; j<vector.length ; j++) {
-            if(i != vector[j]) {
-                faltantes++;
+
+console.log(resultados());
+
+
+function resultados(): number{
+    for(var i:number = 0; i<pagos[0].length; i++) {
+        for (var j: number = 0; j<pagos.length; j++) {
+            if (pagos[j][i]== 0) {
+                break;
             }
-            if(faltantes===vector.length){
-                respuesta++;
-                //console.log(i);
+            else {
+                total+=pagos[j][i];
             }
         }
-        faltantes=0;
     }
-    return respuesta;
+    return total;
 }
