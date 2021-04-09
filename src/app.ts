@@ -1,26 +1,32 @@
-var pagos: number [][] = [
-    [0, 1, 1, 0],
-    [0, 0, 1, 0],
-    [2, 0, 3, 3]
-];
+var cad1: string = "ksadussss";
+var cad2: string = "zdsdsa";
+var total: number = 0;
+var visitados : number [] = [];
 
 
-var total: number =0;
+for(var i: number = 0; i<= cad1.length-1; i++){
+    total+=encontrar(cad1.charAt(i),0);
+    //console.log(encontrar(cad1.charAt(i),0))
+}
+
+console.log(total);
 
 
-console.log(resultados());
 
 
-function resultados(): number{
-    for(var i:number = 0; i<pagos[0].length; i++) {
-        for (var j: number = 0; j<pagos.length; j++) {
-            if (pagos[j][i]== 0) {
-                break;
+function encontrar(caracter: string, posicioncad2: number) : number{
+    if (posicioncad2 == cad2.length)
+            return 0;
+    else{
+        if(caracter == cad2.charAt(posicioncad2)){
+            for(var i:number = 0; i< visitados.length; i++){
+                if(posicioncad2 == visitados[i]) {
+                    return encontrar(caracter,posicioncad2+1);
+                }
             }
-            else {
-                total+=pagos[j][i];
-            }
+            visitados.push(posicioncad2);
+            return 1;
         }
+        return encontrar(caracter,posicioncad2+1);
     }
-    return total;
 }
