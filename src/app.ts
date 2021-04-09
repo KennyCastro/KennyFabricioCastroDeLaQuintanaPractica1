@@ -1,13 +1,11 @@
-let numero:number = 5;
-console.log(primo(numero,2));
+let cadena: string = "hola como estas";
+invertida(cadena)
 
-function primo (num: number, div:number):boolean {
-    if(num/2 < div)
-        return true;
-    else {
-        if (num % div == 0){
-            return false;
-        }   
-        return primo(num, div+1);
+
+function invertida(cad: string) {
+    let inv:string = "";
+    for(var i = cad.length - 1; i>=0; i--) {
+         inv+=cad.charAt(i);
     }
+    console.log(inv);
 }
