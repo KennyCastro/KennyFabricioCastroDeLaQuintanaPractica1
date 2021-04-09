@@ -1,11 +1,14 @@
-let cadena: string = "hola como estas";
-invertida(cadena)
+var palabra: string = "anitalavalatina";
+console.log(palindromo(palabra));
 
-
-function invertida(cad: string) {
-    let inv:string = "";
+function palindromo(cad:string):boolean {
+    let newstring:string = "";
     for(var i = cad.length - 1; i>=0; i--) {
-         inv+=cad.charAt(i);
+        newstring += cad.charAt(i);
     }
-    console.log(inv);
+    if (palabra === newstring) {
+        return true;
+    } 
+    //console.log(newstring);
+    return false;
 }
